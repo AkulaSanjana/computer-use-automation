@@ -1,0 +1,7 @@
+playwright
+pydantic
+python-dotenv
+fastapi
+uvicorn
+openai
+python-multipart

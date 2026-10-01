@@ -1,0 +1,21 @@
+# Virtual environment
+venv/
+
+# Environment variables / secrets
+.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# macOS
+.DS_Store
+
+# VS Code
+.vscode/
+
+# Playwright temporary files
+playwright-report/
+test-results/

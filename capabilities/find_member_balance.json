@@ -1,0 +1,24 @@
+{
+  "name": "find_member_balance",
+  "description": "Find the savings balance for a member using the LegacyBank UI.",
+  "actions": [
+    {
+      "action_type": "navigate",
+      "selector": "",
+      "value": "http://127.0.0.1:8000"
+    },
+    {
+      "action_type": "fill",
+      "selector": "input[name=\"member_id\"]",
+      "value": "{{member_id}}"
+    },
+    {
+      "action_type": "click",
+      "selector": "button[type=\"submit\"]",
+      "value": null
+    }
+  ],
+  "parameters": [
+    "member_id"
+  ]
+}

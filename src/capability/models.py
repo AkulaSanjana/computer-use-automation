@@ -1,0 +1,15 @@
+from typing import List, Optional
+from pydantic import BaseModel
+
+
+class Action(BaseModel):
+    action_type: str
+    selector: str
+    value: Optional[str] = None
+
+
+class Capability(BaseModel):
+    name: str
+    description: str
+    actions: List[Action]
+    parameters: List[str] = []
