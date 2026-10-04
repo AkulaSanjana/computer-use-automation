@@ -36,27 +36,33 @@ class BrowserSurface:
         return self.page.locator(selector).inner_text()
 
     def observe(self) -> str:
-        """Returns the visible text of the current page for the agent."""
+        """Return visible page text for the agent."""
         self.log("OBSERVE -> reading visible page text")
         return self.page.locator("body").inner_text()
 
     def get_interactive_elements(self) -> list:
-        """Returns basic information about inputs, buttons, and links."""
+        """Return useful information about interactive UI elements."""
         self.log("OBSERVE -> reading interactive elements")
 
-        return self.page.locator("input, button, a").evaluate_all(
+        return self.page.locator(
+            "input, button, a, select, textarea"
+        ).evaluate_all(
             """
             elements => elements.map(el => ({
                 tag: el.tagName.toLowerCase(),
-                text: el.innerText || "",
+                text: (el.innerText || "").trim(),
+                id: el.getAttribute("id") || "",
                 name: el.getAttribute("name") || "",
-                type: el.getAttribute("type") || ""
+                type: el.getAttribute("type") || "",
+                placeholder: el.getAttribute("placeholder") || "",
+                aria_label: el.getAttribute("aria-label") || "",
+                disabled: el.disabled || false
             }))
             """
         )
 
     def human_handoff(self, message: str) -> None:
-        """Pause automation so a human can interact with the same browser."""
+        """Pause automation so a human can use the same browser session."""
         self.log("HUMAN_HANDOFF started")
 
         print("\nHUMAN HANDOFF REQUIRED")
