@@ -19,3 +19,5 @@ __pycache__/
 # Playwright temporary files
 playwright-report/
 test-results/
+
+.pytest_cache/
