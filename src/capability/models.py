@@ -5,7 +5,7 @@ from pydantic import BaseModel, Field
 
 class Action(BaseModel):
     action_type: str
-    selector: str
+    selector: Optional[str] = None
     value: Optional[str] = None
 
 

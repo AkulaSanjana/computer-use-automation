@@ -211,7 +211,6 @@ VALUE: <value to enter, or leave empty for click>
         actions=[
             Action(
                 action_type="navigate",
-                selector="",
                 value="http://127.0.0.1:8000",
             ),
             Action(

@@ -4,7 +4,7 @@
   "actions": [
     {
       "action_type": "navigate",
-      "selector": "",
+      "selector": null,
       "value": "http://127.0.0.1:8000"
     },
     {
