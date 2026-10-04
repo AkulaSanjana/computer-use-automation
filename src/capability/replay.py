@@ -1,4 +1,4 @@
-from typing import Dict
+from typing import Dict, Optional
 
 from src.capability.models import Capability
 from src.surface.browser import BrowserSurface
@@ -13,9 +13,22 @@ class CapabilityReplayer:
     def replay(
         self,
         capability: Capability,
-        parameters: Dict[str, str] = None,
+        parameters: Optional[Dict[str, str]] = None,
     ) -> None:
         parameters = parameters or {}
+
+        # Validate that all required capability parameters were supplied.
+        missing_parameters = [
+            parameter
+            for parameter in capability.parameters
+            if parameter not in parameters
+        ]
+
+        if missing_parameters:
+            raise ValueError(
+                "Missing required parameters: "
+                + ", ".join(missing_parameters)
+            )
 
         for action in capability.actions:
             value = action.value

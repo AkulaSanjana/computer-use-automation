@@ -5,8 +5,7 @@ from src.capability.replay import CapabilityReplayer
 from src.surface.browser import BrowserSurface
 
 
-# Load the capability that was recorded
-# during the successful LLM discovery run.
+# Load the capability recorded during the LLM discovery run.
 recorder = CapabilityRecorder()
 capability = recorder.load("find_member_balance")
 
@@ -31,7 +30,21 @@ with sync_playwright() as p:
         },
     )
 
-    print("\nReplay completed successfully.")
+    # Read the UI after replay to determine the result.
+    page_text = surface.observe()
+
+    if "Member Not Found" in page_text:
+        print("\nReplay completed, but member was not found.")
+        print("RESULT: MEMBER_NOT_FOUND")
+
+    elif "Savings Balance" in page_text:
+        print("\nReplay completed successfully.")
+        print("RESULT: MEMBER_FOUND")
+
+    else:
+        print("\nReplay completed, but the result is unknown.")
+        print("RESULT: UNKNOWN")
+
     print("LLM calls during replay: 0")
 
     input("\nPress Enter to close the browser...")

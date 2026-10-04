@@ -1,5 +1,6 @@
 from typing import List, Optional
-from pydantic import BaseModel
+
+from pydantic import BaseModel, Field
 
 
 class Action(BaseModel):
@@ -12,4 +13,4 @@ class Capability(BaseModel):
     name: str
     description: str
     actions: List[Action]
-    parameters: List[str] = []
+    parameters: List[str] = Field(default_factory=list)
