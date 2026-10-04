@@ -37,7 +37,7 @@ with sync_playwright() as p:
         print("\nReplay completed, but member was not found.")
         print("RESULT: MEMBER_NOT_FOUND")
 
-    elif "Savings Balance" in page_text:
+    elif capability.success_text and capability.success_text in page_text:
         print("\nReplay completed successfully.")
         print("RESULT: MEMBER_FOUND")
 

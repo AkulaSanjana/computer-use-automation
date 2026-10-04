@@ -20,5 +20,6 @@
   ],
   "parameters": [
     "member_id"
-  ]
+  ],
+  "success_text": "Savings Balance"
 }

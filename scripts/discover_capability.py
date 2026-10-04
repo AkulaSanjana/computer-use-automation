@@ -208,6 +208,7 @@ VALUE: <value to enter, or leave empty for click>
             "using the LegacyBank UI."
         ),
         parameters=["member_id"],
+        success_text="Savings Balance",
         actions=[
             Action(
                 action_type="navigate",
