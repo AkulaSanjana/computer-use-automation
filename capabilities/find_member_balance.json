@@ -21,5 +21,6 @@
   "parameters": [
     "member_id"
   ],
-  "success_text": "Savings Balance"
+  "success_text": "Savings Balance",
+  "result_selector": "table"
 }

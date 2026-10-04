@@ -15,3 +15,4 @@ class Capability(BaseModel):
     actions: List[Action]
     parameters: List[str] = Field(default_factory=list)
     success_text: Optional[str] = None
+    result_selector: Optional[str] = None

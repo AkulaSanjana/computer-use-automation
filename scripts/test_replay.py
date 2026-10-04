@@ -40,6 +40,11 @@ with sync_playwright() as p:
     elif capability.success_text and capability.success_text in page_text:
         print("\nReplay completed successfully.")
         print("RESULT: MEMBER_FOUND")
+    
+    if capability.result_selector:
+        result = surface.get_text(capability.result_selector)
+        print("\nEXTRACTED RESULT:")
+        print(result)
 
     else:
         print("\nReplay completed, but the result is unknown.")

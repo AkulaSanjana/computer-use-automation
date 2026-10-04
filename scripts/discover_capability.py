@@ -209,6 +209,7 @@ VALUE: <value to enter, or leave empty for click>
         ),
         parameters=["member_id"],
         success_text="Savings Balance",
+        result_selector="table",
         actions=[
             Action(
                 action_type="navigate",
